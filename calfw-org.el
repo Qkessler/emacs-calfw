@@ -142,7 +142,7 @@ For example,
   (bury-buffer))
 
 (defvar cfw:org-text-keymap
-  (let ((cl-map (make-sparse-keymap)))
+  (let ((map (make-sparse-keymap)))
     (define-key map [mouse-1] 'cfw:org-onclick)
     (define-key map (kbd "RET") 'cfw:org-onclick)
     (define-key map (kbd "C-c C-o") 'cfw:org-onclick)

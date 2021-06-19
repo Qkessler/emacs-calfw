@@ -80,7 +80,7 @@
       (goto-char (marker-position marker)))))
 
 (defvar cfw:cal-text-keymap
-  (let ((cl-map (make-sparse-keymap)))
+  (let ((map (make-sparse-keymap)))
     (define-key map [mouse-1] 'cfw:cal-onclick)
     (define-key map (kbd "<return>") 'cfw:cal-onclick)
     map)
