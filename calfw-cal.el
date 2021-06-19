@@ -53,7 +53,7 @@
                       (replace-regexp-in-string
                        "[\t ]+" " " (cfw:trim string))
                       "\n"))
-         (first      (car lines))
+         (cl-first      (car lines))
          (desc       (mapconcat 'identity (cdr lines) "\n"))
          (title      (progn
                        (string-match cfw:cal-diary-regex first)
@@ -80,7 +80,7 @@
       (goto-char (marker-position marker)))))
 
 (defvar cfw:cal-text-keymap
-  (let ((map (make-sparse-keymap)))
+  (let ((cl-map (make-sparse-keymap)))
     (define-key map [mouse-1] 'cfw:cal-onclick)
     (define-key map (kbd "<return>") 'cfw:cal-onclick)
     map)
@@ -94,7 +94,7 @@ from the diary schedule data."
               (1+ (cfw:days-diff begin end)) t))
         non-periods
         periods)
-    (loop for i in all
+    (cl-loop for i in all
           for date = (car i)
           for title = (nth 1 i)
           for date-spec = (nth 2 i)
@@ -106,11 +106,11 @@ from the diary schedule data."
                 (push pspec periods))
             (push i non-periods)))
     (append
-     (loop
+     (cl-loop
       for (date string . rest) in non-periods
       collect (cfw:cal-entry-to-event date string))
      (list (cons 'periods
-                 (map 'list (function (lambda (period)
+                 (cl-map 'list (function (lambda (period)
                                         (let ((spec (read (substring (car period) 2))))
                                           (cond
                                            ((eq calendar-date-style 'american)
