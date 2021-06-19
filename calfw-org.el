@@ -468,7 +468,7 @@ TEXT1 < TEXT2. This function makes no-time items in front of timed-items."
     (let* ((source1 (cfw:org-create-source))
            (curr-keymap (if cfw:org-overwrite-default-keybinding cfw:org-custom-map cfw:org-schedule-map))
            (cp (cfw:create-calendar-component-buffer
-                :view 'month
+                :view 'two-weeks
                 :contents-sources (list source1)
                 :custom-map curr-keymap
                 :sorter 'cfw:org-schedule-sorter)))

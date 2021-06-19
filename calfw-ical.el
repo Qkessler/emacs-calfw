@@ -274,7 +274,7 @@ calendar source."
   (interactive)
   (save-excursion
     (let ((cp (cfw:create-calendar-component-buffer
-               :view 'month
+               :view 'two-weeks
                :contents-sources
                (list (cfw:ical-create-source "ical" url "#2952a3")))))
       (switch-to-buffer (cfw:cp-get-buffer cp)))))
